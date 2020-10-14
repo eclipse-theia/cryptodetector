@@ -1,0 +1,81 @@
+{
+  "name": "cryptodetector",
+  "description": "CryptoDetector Language Server and Client",
+  "version": "1.0.0",
+  "license": "EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0",
+  "publisher": "eclipse-theia",
+  "engines": {
+    "vscode": "^1.40.0"
+  },
+  "author": {
+    "name": "Vincent Fugnitto",
+    "email": "vincent.fugnitto@ericsson.com",
+    "url": "https://github.com/vince-fugnitto"
+  },
+  "contributors": [
+    {
+      "name": "Vincent Fugnitto",
+      "email": "vincent.fugnitto@ericsson.com",
+      "url": "https://github.com/vince-fugnitto"
+    },
+    {
+      "name": "Paul Maréchal",
+      "email": "paul.marechal@ericsson.com",
+      "url": "https://github.com/marechal-p"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vince-fugnitto/cryptodetector"
+  },
+  "categories": [],
+  "keywords": [],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./client/out/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Example configuration",
+      "properties": {
+        "languageServerExample.maxNumberOfProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "languageServerExample.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "prepare": "npm run lint",
+    "vscode:prepublish": "cd client && cd .. && npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+    "lint": "node --max-old-space-size=4096 node_modules/eslint/bin/eslint.js \"**/*.{ts,tsx}\""
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.0",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "eslint": "^6.4.0",
+    "mocha": "^6.2.2",
+    "tslint": "^5.12.0",
+    "typescript": "^3.8.3"
+  }
+}
