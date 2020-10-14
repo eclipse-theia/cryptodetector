@@ -1,0 +1,38 @@
+{
+  "name": "cryptodetector-client",
+  "description": "CryptoDetector Language Client",
+  "author": {
+    "name": "Vincent Fugnitto",
+    "email": "vincent.fugnitto@ericsson.com",
+    "url": "https://github.com/vince-fugnitto"
+  },
+  "contributors": [
+    {
+      "name": "Vincent Fugnitto",
+      "email": "vincent.fugnitto@ericsson.com",
+      "url": "https://github.com/vince-fugnitto"
+    },
+    {
+      "name": "Paul Maréchal",
+      "email": "paul.marechal@ericsson.com",
+      "url": "https://github.com/marechal-p"
+    }
+  ],
+  "version": "0.0.1",
+  "publisher": "vince-fugnitto",
+  "license": "EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vince-fugnitto/cryptodetector"
+  },
+  "engines": {
+    "vscode": "^1.40.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^6.1.3"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.43.0",
+    "vscode-test": "^1.3.0"
+  }
+}

@@ -1,0 +1,6 @@
+*.vsix
+.eslintcache
+.vscode-test
+client/server
+node_modules
+out
