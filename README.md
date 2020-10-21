@@ -10,7 +10,14 @@
 
 ## Description
 
-The **crypto-detector** is a language server and client extension which provides diagnostic markers for files that have been analyzed for containing cryptography.
+The **crypto-detector** extension is a language-server and client extension which uses static analysis of source code in order to detect use of **cryptography**.
+
+The tool uses [Wind-River/crypto-detector]( https://github.com/Wind-River/crypto-detector) in order to scan source code and determine if cryptography exists using the following [two methods](https://github.com/Wind-River/crypto-detector#methods-of-scanning-code):
+
+1. _keyword_: simple scan for any use of terms, words related to cryptography.
+2. _API finder_: deeper scan for use of API calls and libraries related to cryptography.
+
+The extension is tested and works successfully in both `Eclipse Theia` based products and `VS Code`.
 
 ## Components
 
@@ -28,8 +35,8 @@ The **crypto-detector** is a language server and client extension which provides
 
 ## License
 
-- [Eclipse Public License 2.0](LICENSE)
-- [一 (Secondary) GNU General Public License, version 2 with the GNU Classpath Exception](LICENSE)
+- [Eclipse Public License 2.0](./LICENSE)
+- [一 (Secondary) GNU General Public License, version 2 with the GNU Classpath Exception](./LICENSE)
 
 ## Trademark
 "Theia" is a trademark of the Eclipse Foundation
