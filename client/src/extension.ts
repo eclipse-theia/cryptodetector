@@ -16,18 +16,30 @@
 
 import * as path from 'path';
 import * as vscode from 'vscode';
-
 import * as ls from 'vscode-languageclient';
+
+const extensionName = 'demo-extension';
 
 let client: ls.LanguageClient;
 
+/**
+ * Main entry point for activating the extension when the `onActivationEvent` as defined in the `package.json` is satisfied.
+ * More information on `activation events` can be viewed here: https://code.visualstudio.com/api/references/activation-events.
+ * @param context the extension context.
+ */
 export function activate(context: vscode.ExtensionContext): void {
-    // The server is implemented in node
+
+    /**
+     * The server is implemented in `node`.
+     */
     const serverModule = context.asAbsolutePath(
         path.join('server', 'out', 'server.js')
     );
-    // The debug options for the server
-    // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
+
+    /**
+     * The debug options for the server
+     * --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging.
+     */
     const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
 
     // If the extension is launched in debug mode then the debug server options are used
@@ -41,28 +53,50 @@ export function activate(context: vscode.ExtensionContext): void {
         }
     };
 
-    // Options to control the language client
+    /**
+     * Options to control and configure the language client.
+     */
     const clientOptions: ls.LanguageClientOptions = {
-        // Register the server for plain text documents
+        /**
+         * The different languages that the server should handle.
+         */
         documentSelector: [
             { scheme: 'file', language: 'javascript' },
             { scheme: 'file', language: 'typescript' },
             { scheme: 'file', language: 'c' },
             { scheme: 'file', language: 'cpp' },
         ],
-        diagnosticCollectionName: 'crypto-detector',
-        outputChannelName: 'crypto-detector'
+        /**
+         * The common name for diagnostics contributed by the extension.
+         * The name will be used by the user-interface to identify the `source` of diagnostics.
+         *
+         * TODO: update to an appropriate name.
+         */
+        diagnosticCollectionName: extensionName,
+        /**
+         * The output channel name for the extension.
+         * The name is used in the `output-view` to display communication between the client and extension.
+         * Communication from the extension is provided when performing `communication.console` messages.
+         * - ex: connection.console.log(`onDidCloseTextDocument called: ${params.textDocument.uri}`);
+         *
+         * TODO: update to an appropriate name.
+         */
+        outputChannelName: extensionName
     };
 
-    // Create the language client and start the client.
+    /**
+     * Create the language client with the appropriate parameters.
+     */
     client = new ls.LanguageClient(
-        'crypto-detector',
-        'crypto-detector',
-        serverOptions,
-        clientOptions
+        extensionName, // client name.
+        serverOptions, // server options.
+        clientOptions // client options.
     );
 
-    // Start the client. This will also launch the server
+    /**
+     * Start the language-client.
+     * This will also launch the server.
+     */
     client.start();
 }
 

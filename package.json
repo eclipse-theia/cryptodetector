@@ -1,6 +1,6 @@
 {
-  "name": "cryptodetector",
-  "description": "CryptoDetector Language Server and Client",
+  "name": "demo-lsp-integration",
+  "description": "Demo Language Server and Client Extension",
   "version": "1.0.0",
   "license": "EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0",
   "publisher": "eclipse-theia",
@@ -34,31 +34,7 @@
     "*"
   ],
   "main": "./client/out/extension",
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "Example configuration",
-      "properties": {
-        "languageServerExample.maxNumberOfProblems": {
-          "scope": "resource",
-          "type": "number",
-          "default": 100,
-          "description": "Controls the maximum number of problems produced by the server."
-        },
-        "languageServerExample.trace.server": {
-          "scope": "window",
-          "type": "string",
-          "enum": [
-            "off",
-            "messages",
-            "verbose"
-          ],
-          "default": "off",
-          "description": "Traces the communication between VS Code and the language server."
-        }
-      }
-    }
-  },
+  "contributes": {},
   "scripts": {
     "prepare": "npm run lint",
     "vscode:prepublish": "cd client && cd .. && npm run compile",

@@ -18,9 +18,9 @@ import { Position, Range, TextEdit, } from 'vscode-languageserver';
 import { TextDocument, TextDocumentContentChangeEvent } from 'vscode-languageserver-textdocument';
 
 /**
- * Implementation of a `TextDocument` for `Crypto`.
+ * Implementation and representation of a `TextDocument` for the language-server.
  */
-export class CryptoTextDocument implements TextDocument {
+ export class Document implements TextDocument {
 
     /**
      * The text document.
