@@ -1,0 +1,1 @@
+Please refer to our [code of conduct](https://github.com/eclipse-theia/theia/blob/master/CODE_OF_CONDUCT.md) in the main Theia repository, which applies to this repository, too.
